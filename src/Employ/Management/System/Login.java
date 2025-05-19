@@ -1,9 +1,12 @@
 package Employ.Management.System;
 
+import com.mysql.cj.protocol.Resultset;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 public class Login extends JFrame implements ActionListener {
 
@@ -68,7 +71,24 @@ public class Login extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == login){
+            try {
+                String username = tusername.getText();
+                String password = tpassword.getText();
 
+                connection connclass = new connection();
+
+                String query = "select * from login where username = '"+username+"'and password = '"+password+"'";
+                ResultSet resultset = connclass.statement.executeQuery(query);
+                if(resultset.next()) {
+                    setVisible(false);
+                    new Main_class();
+                }else {
+                    JOptionPane.showMessageDialog(null, "Invalid username or password");
+                }
+
+            }catch (Exception E){
+                E.printStackTrace();
+            }
         } else if (e.getSource() == back) {
             System.exit(30);
 

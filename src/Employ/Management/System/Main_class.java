@@ -42,6 +42,10 @@ public class Main_class extends JFrame implements ActionListener {
         remove.setBackground(Color.RED);
         remove.setForeground(Color.white);
         remove.addActionListener(this);
+//        here this keyword refers to the current object, that is current instance of the class or
+//        second is that we have also written the remove and etc as intance value so this is also one of
+//        the examples we are using the this keyword here
+
         img.add(remove);
 
 

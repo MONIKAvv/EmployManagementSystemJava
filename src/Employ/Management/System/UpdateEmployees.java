@@ -16,8 +16,9 @@ public class UpdateEmployees extends JFrame implements ActionListener {
 
     UpdateEmployees(String empnumber) {
         this.empnumber = empnumber;
+
         getContentPane().setBackground(new Color(156, 155, 188));
-        JLabel heading = new JLabel("Add Employees Detail");
+        JLabel heading = new JLabel("Update Employee's Details");
         heading.setBounds(320, 30, 400, 50);
         heading.setFont(new Font("serif", Font.BOLD, 25));
         add(heading);
@@ -149,6 +150,7 @@ public class UpdateEmployees extends JFrame implements ActionListener {
             ResultSet resultSet = c.statement.executeQuery(query);
             while(resultSet.next()){
                 tname.setText(resultSet.getString("name"));
+//                settext display karwata hai and result.getstring() this fetches the values from database
                 tfathername.setText(resultSet.getString("fname"));
                 tdob.setText(resultSet.getString("dob"));
                 taddress.setText(resultSet.getString("address"));
@@ -193,6 +195,7 @@ public class UpdateEmployees extends JFrame implements ActionListener {
 
         if(e.getSource() == add){
             String fname = tfathername.getText();
+//            this reads the text that user typed into the textfield
             String salary = tsalary.getText();
             String address = taddress.getText();
             String phoneno = tphone.getText();

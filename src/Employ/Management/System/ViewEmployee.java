@@ -17,10 +17,10 @@ public class ViewEmployee extends JFrame implements ActionListener {
     ViewEmployee() {
 
         getContentPane().setBackground(new Color(10, 47, 107));
-        JLabel seach = new JLabel("Seach by EmpID");
-        seach.setBounds(20, 20, 150, 30);
-        seach.setForeground(Color.white);
-        add(seach);
+        JLabel search = new JLabel("Search by EmpID");
+        search.setBounds(20, 20, 150, 30);
+        search.setForeground(Color.white);
+        add(search);
 
         chooseemp = new Choice();
         chooseemp.setBounds(180, 20, 150, 20);

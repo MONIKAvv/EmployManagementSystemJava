@@ -13,7 +13,9 @@ public class RemoveEmployee extends JFrame implements ActionListener {
 
     Choice choiceEmpID;
     JButton delete, back;
-    RemoveEmployee(){
+    String empnum;
+    RemoveEmployee(String empnum){
+        this.empnum = empnum;
 
         JLabel label = new JLabel("Employee ID");
         label.setBounds(50, 50, 100, 30);
@@ -132,7 +134,8 @@ public class RemoveEmployee extends JFrame implements ActionListener {
         if(e.getSource() == delete){
             try{
                 connection c = new connection();
-                String query = "delete from Employee where empid = '"+choiceEmpID+"'";
+                String query = "delete from Employee where empid = '"+choiceEmpID.getSelectedItem()+"'";
+                choiceEmpID.remove(choiceEmpID.getSelectedItem());
                 c.statement.executeUpdate(query);
                 JOptionPane.showMessageDialog(null, "Employee Deleted Successfully!");
                 setVisible(false);
@@ -147,6 +150,6 @@ public class RemoveEmployee extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new RemoveEmployee();
+        new RemoveEmployee("");
     }
 }

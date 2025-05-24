@@ -10,14 +10,15 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 
 public class ViewEmployee extends JFrame implements ActionListener {
-JTable table;
-JButton searchbtn,print, update, back;
+    JTable table;
+    JButton searchbtn, print, update, back, delete;
     Choice chooseemp;
-    ViewEmployee(){
+
+    ViewEmployee() {
 
         getContentPane().setBackground(new Color(10, 47, 107));
         JLabel seach = new JLabel("Seach by EmpID");
-        seach.setBounds(20, 20,150,30);
+        seach.setBounds(20, 20, 150, 30);
         seach.setForeground(Color.white);
         add(seach);
 
@@ -28,29 +29,28 @@ JButton searchbtn,print, update, back;
         try {
             connection c = new connection();
             ResultSet resultSet = c.statement.executeQuery("select * from Employee");
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 chooseemp.add(resultSet.getString("empid"));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-
-        table  = new JTable();
+        table = new JTable();
         try {
             connection c = new connection();
             ResultSet resultset = c.statement.executeQuery("select * from Employee");
             table.setModel(DbUtils.resultSetToTableModel(resultset));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         JScrollPane jp = new JScrollPane(table);
-        jp.setBounds(0,100, 900,600);
+        jp.setBounds(0, 100, 900, 600);
         add(jp);
 
         searchbtn = new JButton("Search Employee");
-        searchbtn.setBounds(20,70, 150,20);
+        searchbtn.setBounds(20, 70, 150, 20);
         searchbtn.addActionListener(this);
         add(searchbtn);
 
@@ -69,43 +69,52 @@ JButton searchbtn,print, update, back;
         back.addActionListener(this);
         add(back);
 
+        delete = new JButton("DELETE");
+        delete.setBounds(520, 70, 80, 20);
+        delete.addActionListener(this);
+        add(delete);
 
 
-
-
-       setSize(900, 700);
-       setLayout(null);
-       setLocation(300, 100);
-       setVisible(true);
+        setSize(900, 700);
+        setLayout(null);
+        setLocation(300, 100);
+        setVisible(true);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == searchbtn){
-            String query = "select * from Employee where empid = '"+chooseemp.getSelectedItem()+"'";
+        if (e.getSource() == searchbtn) {
+            String query = "select * from Employee where empid = '" + chooseemp.getSelectedItem() + "'";
             try {
                 connection c = new connection();
                 ResultSet resultset = c.statement.executeQuery(query);
                 table.setModel(DbUtils.resultSetToTableModel(resultset));
 
-            }catch (Exception E){
+            } catch (Exception E) {
                 E.printStackTrace();
             }
         } else if (e.getSource() == print) {
             try {
                 table.print();
-            }catch (Exception E){
+            } catch (Exception E) {
                 E.printStackTrace();
             }
         } else if (e.getSource() == update) {
             try {
                 setVisible(false);
                 new UpdateEmployees(chooseemp.getSelectedItem());
-            }catch (Exception E){
+            } catch (Exception E) {
                 E.printStackTrace();
             }
-        }else {
+        } else if (e.getSource() == delete) {
+            try {
+                setVisible(false);
+                new RemoveEmployee(chooseemp.getSelectedItem());
+            } catch (Exception E) {
+                E.printStackTrace();
+            }
+        } else {
             setVisible(false);
             new Main_class();
         }

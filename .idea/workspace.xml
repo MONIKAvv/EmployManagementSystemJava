@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6525d42b-0f72-4d32-8072-0ec30cee82a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Employ_Management_System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Employ_Management_System.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Employ/Management/System/AddEmploy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employ/Management/System/AddEmploy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Employ/Management/System/Main_class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employ/Management/System/Main_class.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Employ/Management/System/RemoveEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employ/Management/System/RemoveEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Employ/Management/System/ViewEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employ/Management/System/ViewEmployee.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +44,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Splash">
+  <component name="RunManager" selected="Application.RemoveEmployee">
     <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Employ.Management.System.Login" />
       <module name="Employ_Management_System" />
@@ -113,9 +112,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Splash" />
         <item itemvalue="Application.RemoveEmployee" />
         <item itemvalue="Application.ViewEmployee" />
+        <item itemvalue="Application.Splash" />
         <item itemvalue="Application.UpdateEmployees" />
         <item itemvalue="Application.Login" />
       </list>

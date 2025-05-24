@@ -64,7 +64,7 @@ public class Main_class extends JFrame implements ActionListener {
         } else if (e.getSource() == remove) {
             try {
                 setVisible(false);
-                new RemoveEmployee();
+                new RemoveEmployee("");
             } catch (Exception E) {
                 E.printStackTrace();
             }
